@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <!-- les champs sont ajoutés directement dans la table via les déclarative schema
+     Attention à bien générer la whitelist via la commmande
+     bin/magento setup:db-declaration:generate-whitelist - -module-name=Hhennes_OrderAttributes ( attention les - de l'option doivent se suivre )
+     Puis à lancer un setup:upgrade pour que ce soit bien pris en compte
+    -->
+    <table name="sales_order" resource="checkout" comment="Sales Order">
+        <column xsi:type="boolean" name="sample_boolean_attribute" default="0" comment="Boolean attribute"/>
+        <column xsi:type="int" name="sample_int_attribute" default="0" padding="11" comment="Int Attribute"/>
+        <column xsi:type="text" name="sample_text_attribute" nullable="true" comment="Text attribute"/>
+    </table>
+</schema>

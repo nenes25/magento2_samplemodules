@@ -1,0 +1,9 @@
+{
+    "sales_order": {
+        "column": {
+            "sample_boolean_attribute": true,
+            "sample_int_attribute": true,
+            "sample_text_attribute": true
+        }
+    }
+}
