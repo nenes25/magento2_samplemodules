@@ -18,6 +18,7 @@ namespace Hhennes\CustomerAttributes\Setup\Patch\Data;
 
 use Magento\Customer\Model\Customer;
 use Magento\Customer\Setup\CustomerSetupFactory;
+use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
@@ -35,18 +36,25 @@ class CreateTextAttribute implements DataPatchInterface
      * @var CustomerSetupFactory
      */
     private $customerSetupFactory;
+    /**
+     * @var AttributeSetFactory
+     */
+    private $attributeSetFactory;
 
     /**
      * CreateExportFlags constructor.
      * @param ModuleDataSetupInterface $moduleDataSetup
      * @param CustomerSetupFactory $customerSetupFactory
+     * @param AttributeSetFactory $attributeSetFactory
      */
     public function __construct(
         ModuleDataSetupInterface $moduleDataSetup,
-        CustomerSetupFactory $customerSetupFactory
+        CustomerSetupFactory $customerSetupFactory,
+        AttributeSetFactory $attributeSetFactory
     ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->customerSetupFactory = $customerSetupFactory;
+        $this->attributeSetFactory = $attributeSetFactory;
     }
 
     /**
@@ -56,6 +64,8 @@ class CreateTextAttribute implements DataPatchInterface
     {
         /** @var  \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->customerSetupFactory->create();
+
+
         $eavSetup->addAttribute(
             Customer::ENTITY,
             self::ATTRIBUTE_CODE,
@@ -71,17 +81,18 @@ class CreateTextAttribute implements DataPatchInterface
             ]
         );
 
-        $sampleAttribute = $eavSetup->getEavConfig()->getAttribute(Customer::ENTITY, self::ATTRIBUTE_CODE);
+        $customerEntity = $eavSetup->getEavConfig()->getEntityType(Customer::ENTITY);
+        $attributeSetId = $customerEntity->getDefaultAttributeSetId();
+        $attributeSet = $this->attributeSetFactory->create();
+        $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
 
-        // more used_in_forms ['adminhtml_checkout','adminhtml_customer','adminhtml_customer_address','customer_account_edit','customer_address_edit','customer_register_address']
-        $sampleAttribute->setData(
-            'used_in_forms',
-            ['adminhtml_customer']
-        );
+        $sampleAttribute = $eavSetup->getEavConfig()->getAttribute(Customer::ENTITY, self::ATTRIBUTE_CODE);
         $sampleAttribute->addData([
-            'attribute_set_id' => 1,
-            'attribute_group_id' => 1
+            'attribute_set_id' => $attributeSetId,
+            'attribute_group_id' => $attributeGroupId,
+            'used_in_forms', ['adminhtml_customer'] //possibles values : adminhtml_checkout,adminhtml_customer,adminhtml_customer_address,customer_account_edit,customer_address_edit,customer_register_address
         ]);
+
         $sampleAttribute->save();
     }
 
