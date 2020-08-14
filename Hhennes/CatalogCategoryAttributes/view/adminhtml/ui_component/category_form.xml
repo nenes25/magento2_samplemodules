@@ -92,7 +92,7 @@
             <opened>false</opened>
             <disabled>false</disabled>
             <level>1</level>
-            <additionalClasses>.test</additionalClasses><!-- Pas trouvé comment configurer ça -->
+            <additionalClasses>  </additionalClasses><!-- Pas trouvé comment configurer ça -->
         </settings>
 
         <!-- Ancienne syntaxe pour ajouter un fieldset
@@ -118,8 +118,9 @@
                 </select>
             </formElements>
 
-            <!--  Ancienne syntaxe A finaliser
+            <!--  Ancienne syntaxe
             <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Hhennes\CatalogCategoryAttributes\Model\Attribute\Source\SampleSelect</item>
                 <item name="config" xsi:type="array">
                     <item name="label" xsi:type="string" translate="true">Sample Select attribute</item>
                     <item name="dataType" xsi:type="string">int</item>
@@ -129,5 +130,38 @@
             </argument>
             -->
         </field>
+
+        <!-- Attribut de type color picker -->
+       <colorPicker name="sample_colorpicker_attribute" sortOrder="203" class="Magento\Ui\Component\Form\Element\ColorPicker" component="Magento_Ui/js/form/element/color-picker">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">category_form</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">ColorPicker attribute</label>
+                <colorFormat>hex</colorFormat>
+                <colorPickerMode>full</colorPickerMode>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <dataScope>sample_colorpicker_attribute</dataScope>
+            </settings>
+        </colorPicker>
+
+        <!-- Ancien format pour colorPicker
+        <field name="sample_colorpicker_attribute">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="template" xsi:type="string">ui/form/field</item>
+                    <item name="elementTmpl" xsi:type="string">ui/form/element/color-picker</item>
+                    <item name="label" xsi:type="string">Background Color (hex)</item>
+                    <item name="labelVisible" xsi:type="boolean">true</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">category_form</item>
+                </item>
+            </argument>
+        </field>-->
     </fieldset>
 </form>
