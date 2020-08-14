@@ -1,6 +1,12 @@
 <?xml version="1.0" ?>
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <!-- Il existe 2 types de syntaxes pour les ui_component
+     <settings> => Magento 2.2 et >
+     <arguments => 2.1 et + ( marche toujours en 2.4 )
+    -->
+
     <!-- Type de fieldset disponibles nativement
     content
     display_settings
@@ -12,36 +18,116 @@
     -->
     <fieldset name="general">
         <!-- Attribut texte standard -->
-        <field name="sample_text_attribute">
+        <field name="sample_text_attribute"  sortOrder="300" formElement="input">
+            <settings>
+                <label translate="true">Sample Text Attribute</label>
+                <required>false</required>
+                <dataType>string</dataType>
+                <placeholder>My Placeholder </placeholder>
+            </settings>
+            <!-- Ancienne Syntaxe ( Attention a bien elever les noeuds sur fields pour que ça fonctionne
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="label" translate="true" xsi:type="string">Sample Text Attribute</item>
                     <item name="required" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="number">300</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="placeholder" xsi:type="string">my placeholder old syntax</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="boolean">false</item>
                     </item>
-                    <item name="sortOrder" xsi:type="number">333</item>
-                    <item name="dataType" xsi:type="string">string</item>
-                    <item name="formElement" xsi:type="string">input</item>
-                    <item name="label" translate="true" xsi:type="string">Sample Text Attribute</item>
                 </item>
-            </argument>
+            </argument>-->
         </field>
         <!-- Attribut Yes/No -->
-        <field name="sample_yes_no_attribute">
+        <field name="sample_yes_no_attribute" sortOrder="301" formElement="checkbox">
+            <!-- @todo Trouver comment définir la valeur par défaut dans la nouvelle syntaxe -->
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Sample Yes/No Attribute</label>
+                <dataType>boolean</dataType>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <prefer>toggle</prefer>
+                        <valueMap>
+                            <map name="false" xsi:type="string">0</map>
+                            <map name="true" xsi:type="string">1</map>
+                        </valueMap>
+                    </settings>
+                </checkbox>
+            </formElements>
+
+            <!-- Ancienne Syntaxe
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Sample Yes/No Attribute</item>
                     <item name="dataType" xsi:type="string">boolean</item>
                     <item name="formElement" xsi:type="string">checkbox</item>
-                    <item name="label" xsi:type="string" translate="true">Sample Yes/No Attribute</item>
                     <item name="prefer" xsi:type="string">toggle</item>
+                    <item name="sortOrder" xsi:type="number">301</item>
                     <item name="valueMap" xsi:type="array">
                         <item name="true" xsi:type="string">1</item>
                         <item name="false" xsi:type="string">0</item>
                     </item>
                     <item name="default" xsi:type="number">0</item>
                 </item>
-            </argument>
+            </argument>-->
         </field>
-        <!-- Attribut select -->
+    </fieldset>
+
+    <!-- Pour notre test on peut également créé facilement un fieldset custom -->
+    <fieldset name="hhennes_categoryattribute" sortOrder="100">
+        <!-- Cf https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-fieldset.html -->
+        <settings>
+            <collapsible>true</collapsible> <!-- Retractable ou non -->
+            <label translate="true">Hhennes Categoryattribute</label><!-- Titre du fieldset -->
+            <!-- Les champs ci-dessous sont optionnels -->
+            <opened>false</opened>
+            <disabled>false</disabled>
+            <level>1</level>
+            <additionalClasses>.test</additionalClasses><!-- Pas trouvé comment configurer ça -->
+        </settings>
+
+        <!-- Ancienne syntaxe pour ajouter un fieldset
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="label" xsi:type="string" translate="true">Hhennes Categoryattribute</item>
+            </item>
+        </argument>-->
+
+        <!-- Attribut sample select -->
+        <field name="sample_select_attribute" sortOrder="202" formElement="select">
+            <settings>
+                <label translate="true">Sample Select attribute</label>
+                <dataType>int</dataType>
+            </settings>
+            <formElements>
+                <select>
+                    <settings>
+                        <caption translate="true">--Please select attribute--</caption>
+                        <options class="Hhennes\CatalogCategoryAttributes\Model\Attribute\Source\SampleSelect" />
+                    </settings>
+                </select>
+            </formElements>
+
+            <!--  Ancienne syntaxe A finaliser
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Sample Select attribute</item>
+                    <item name="dataType" xsi:type="string">int</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="sortOrder" xsi:type="number">302</item>
+                </item>
+            </argument>
+            -->
+        </field>
     </fieldset>
 </form>

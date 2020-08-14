@@ -52,7 +52,7 @@ class CreateTextAttribute implements DataPatchInterface
                 'input'        => 'text',
                 'sort_order'   => 100,
                 'source'       => '',
-                'global'       => 1,
+                'global'       => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
                 'visible'      => true,
                 'required'     => false,
                 'user_defined' => false,

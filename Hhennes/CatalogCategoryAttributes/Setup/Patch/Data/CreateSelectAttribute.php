@@ -1,31 +1,16 @@
 <?php
-/**
- * 2002-2020 ADVISA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0) that is available
- * through the world-wide-web at this URL: http://www.opensource.org/licenses/OSL-3.0
- * If you are unable to obtain it through the world-wide-web, please send an email
- * to mage@advisa.fr so we can send you a copy immediately.
- *
- * @author ADVISA
- * @copyright 2002-2020 ADVISA
- * @license http://www.opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
- */
 
 namespace Hhennes\CatalogCategoryAttributes\Setup\Patch\Data;
 
 use Magento\Catalog\Model\Category;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
-use Magento\Eav\Model\Entity\Attribute\Source\Boolean;
 
-class CreateYesNoAttribute implements DataPatchInterface
+class CreateSelectAttribute implements DataPatchInterface
 {
 
     /** @var string Nom de l'attribut à créer */
-    const ATTRIBUTE_CODE = 'sample_yes_no_attribute';
+    const ATTRIBUTE_CODE = 'sample_select_attribute';
 
     private $eavSetupFactory;
 
@@ -46,11 +31,11 @@ class CreateYesNoAttribute implements DataPatchInterface
             self::ATTRIBUTE_CODE,
             [
                 'type'         => 'int',
-                'label'        => 'Yes No Attribute',
+                'label'        => 'Sample Select Attribute',
                 'input'        => 'select',
-                'sort_order'   => 101,
-                'source'       => Boolean::class,
-                'global'       => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_WEBSITE,
+                'sort_order'   => 102,
+                'source'       => \Hhennes\CatalogCategoryAttributes\Model\Attribute\Source\SampleSelect::class,
+                'global'       => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_STORE,
                 'visible'      => true,
                 'required'     => false,
                 'user_defined' => false,
