@@ -163,5 +163,16 @@
                 </item>
             </argument>
         </field>-->
+
+        <!-- Attribut de type date -->
+        <field name="sample_date_attribute" formElement="date">
+            <settings>
+                <label translate="true">Sample date</label>
+                <dataType>text</dataType>
+                <validation>
+                    <rule name="validate-date" xsi:type="boolean">true</rule>
+                </validation>
+            </settings>
+        </field>
     </fieldset>
 </form>

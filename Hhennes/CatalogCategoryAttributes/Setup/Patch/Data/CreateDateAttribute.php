@@ -1,29 +1,19 @@
 <?php
-/**
- * 2002-2020 ADVISA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0) that is available
- * through the world-wide-web at this URL: http://www.opensource.org/licenses/OSL-3.0
- * If you are unable to obtain it through the world-wide-web, please send an email
- * to mage@advisa.fr so we can send you a copy immediately.
- *
- * @author ADVISA
- * @copyright 2002-2020 ADVISA
- * @license http://www.opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
- */
+
 
 namespace Hhennes\CatalogCategoryAttributes\Setup\Patch\Data;
 
-use Magento\Eav\Setup\EavSetupFactory;
-use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class CreateColorPickerAttribute implements DataPatchInterface
+use Magento\Framework\Setup\Patch\DataPatchInterface;
+use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Framework\Setup\Patch\PatchInterface;
+
+class CreateDateAttribute implements DataPatchInterface
 {
 
+
     /** @var string Nom de l'attribut à créer */
-    const ATTRIBUTE_CODE = 'sample_colorpicker_attribute';
+    const ATTRIBUTE_CODE = 'sample_date_attribute';
 
     private $eavSetupFactory;
 
@@ -39,7 +29,7 @@ class CreateColorPickerAttribute implements DataPatchInterface
     {
         /**
          * En complément de la création de l'attribut il faut penser à le définir dans l'ui_component
-         * Dans le cas du colorpicker , c'est uniquement l'ui_component qui fait la différence avec un attribut texte simple
+         * Dans le cas de la date , c'est uniquement l'ui_component qui fait la différence avec un attribut texte simple
          * sinon il ne s'affiche pas en back office
          */
         $eavSetup = $this->eavSetupFactory->create();
@@ -48,10 +38,10 @@ class CreateColorPickerAttribute implements DataPatchInterface
             \Magento\Catalog\Model\Category::ENTITY,
             self::ATTRIBUTE_CODE,
             [
-                'type'         => 'varchar',
-                'label'        => 'ColorPicker Attribute',
-                'input'        => 'text',
-                'sort_order'   => 103,
+                'type'         => 'datetime',
+                'label'        => 'Date Attribute',
+                'input'        => 'date',
+                'sort_order'   => 104,
                 'source'       => '',
                 'global'       => \Magento\Catalog\Model\ResourceModel\Eav\Attribute::SCOPE_GLOBAL,
                 'visible'      => true,
