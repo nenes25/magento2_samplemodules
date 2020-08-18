@@ -42,7 +42,6 @@
         </field>
         <!-- Attribut Yes/No -->
         <field name="sample_yes_no_attribute" sortOrder="301" formElement="checkbox">
-            <!-- @todo Trouver comment définir la valeur par défaut dans la nouvelle syntaxe -->
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="default" xsi:type="number">0</item>
@@ -103,7 +102,7 @@
             </item>
         </argument>-->
 
-        <!-- Attribut sample select -->
+        <!-- Attribut sample select  cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-select.html-->
         <field name="sample_select_attribute" sortOrder="202" formElement="select">
             <settings>
                 <label translate="true">Sample Select attribute</label>
@@ -131,7 +130,7 @@
             -->
         </field>
 
-        <!-- Attribut de type color picker -->
+        <!-- Attribut de type color picker cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-colorpicker.html -->
        <colorPicker name="sample_colorpicker_attribute" sortOrder="203" class="Magento\Ui\Component\Form\Element\ColorPicker" component="Magento_Ui/js/form/element/color-picker">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -164,15 +163,77 @@
             </argument>
         </field>-->
 
-        <!-- Attribut de type date -->
-        <field name="sample_date_attribute" formElement="date">
+        <!-- Attribut de type date cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-date.html  -->
+        <field name="sample_date_attribute" formElement="date" sortOrder="204">
             <settings>
                 <label translate="true">Sample date</label>
-                <dataType>text</dataType>
+                <dataType>string</dataType>
                 <validation>
                     <rule name="validate-date" xsi:type="boolean">true</rule>
                 </validation>
             </settings>
+           <!-- Ancien Format <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="label" xsi:type="string" translate="true">Sample date</item>
+                    <item name="formElement" xsi:type="string">date</item>
+                    <item name="sortOrder" xsi:type="number">204</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-date" xsi:type="boolean">true</item>
+                    </item>
+                    &lt;!&ndash;<item name="options" xsi:type="array">
+                        <item name="dateFormat" xsi:type="string">yyyy-MM-dd</item>
+                        <item name="timeFormat" xsi:type="string">HH:mm:ss</item>
+                        <item name="showsTime" xsi:type="boolean">true</item>
+                    </item>&ndash;&gt;
+                </item>
+            </argument>-->
+        </field>
+
+        <!-- Type file avec upload  cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-fileuploader.html -->
+        <field name="sample_file_attribute" formElement="fileUploader" sortOrder="205">
+            <settings>
+                <label translate="true">File Attribute</label>
+                <dataType>string</dataType>
+            </settings>
+            <formElements>
+                <fileUploader>
+                    <settings>
+                        <required>false</required>
+                        <allowedExtensions>pdf doc docx odt rtf csv</allowedExtensions>
+                        <uploaderConfig>
+                            <param name="url" xsi:type="url" path="hhennes_catalogcategoryattributes/category_sampleimageattribute/upload" />
+                        </uploaderConfig>
+                    </settings>
+                </fileUploader>
+            </formElements>
+        </field>
+
+        <!-- Type image avec upload cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/image-uploader/ -->
+        <field name="sample_image_attribute" formElement="imageUploader" sortOrder="206">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">category</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Image Attribute</label>
+                <dataType>string</dataType>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <allowedExtensions>jpg jpeg gif png svg</allowedExtensions>
+                        <uploaderConfig>
+                            <param name="url" xsi:type="url" path="hhennes_catalogcategoryattributes/category_attributes/uploadImage" />
+                        </uploaderConfig>
+                        <placeholderType>image</placeholderType>
+                        <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
         </field>
     </fieldset>
 </form>
