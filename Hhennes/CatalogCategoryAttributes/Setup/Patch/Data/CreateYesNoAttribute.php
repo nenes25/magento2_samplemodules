@@ -27,8 +27,13 @@ class CreateYesNoAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_yes_no_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateYesNoAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -59,6 +64,8 @@ class CreateYesNoAttribute implements DataPatchInterface
                 'default' => 0,
             ]
         );
+
+        return $this;
     }
 
     /**

@@ -14,8 +14,13 @@ class CreateImageAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_image_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateImageAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -52,6 +57,8 @@ class CreateImageAttribute implements DataPatchInterface
                 'backend' => ''
             ]
         );
+
+        return $this;
     }
 
     /**

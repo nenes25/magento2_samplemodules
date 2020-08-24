@@ -12,8 +12,13 @@ class CreateSelectAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_select_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateSelectAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -44,6 +49,8 @@ class CreateSelectAttribute implements DataPatchInterface
                 'default' => 0,
             ]
         );
+
+        return $this;
     }
 
     /**

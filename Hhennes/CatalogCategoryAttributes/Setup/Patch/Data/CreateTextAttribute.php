@@ -25,8 +25,13 @@ class CreateTextAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_text_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateTextAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -61,6 +66,8 @@ class CreateTextAttribute implements DataPatchInterface
                 'backend'      => ''
             ]
         );
+
+        return $this;
     }
 
     /**

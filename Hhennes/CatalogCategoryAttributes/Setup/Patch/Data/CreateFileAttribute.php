@@ -14,8 +14,13 @@ class CreateFileAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_file_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateFileAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -52,6 +57,8 @@ class CreateFileAttribute implements DataPatchInterface
                 'backend' => ''
             ]
         );
+
+        return $this;
     }
 
     /**

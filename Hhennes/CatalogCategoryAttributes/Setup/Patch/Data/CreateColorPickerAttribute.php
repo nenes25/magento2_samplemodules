@@ -25,8 +25,13 @@ class CreateColorPickerAttribute implements DataPatchInterface
     /** @var string Nom de l'attribut à créer */
     const ATTRIBUTE_CODE = 'sample_colorpicker_attribute';
 
+    /** @var EavSetupFactory  */
     private $eavSetupFactory;
 
+    /**
+     * CreateColorPickerAttribute constructor.
+     * @param EavSetupFactory $eavSetupFactory
+     */
     public function __construct(EavSetupFactory $eavSetupFactory)
     {
         $this->eavSetupFactory = $eavSetupFactory;
@@ -62,6 +67,8 @@ class CreateColorPickerAttribute implements DataPatchInterface
                 'backend'      => ''
             ]
         );
+
+        return $this;
     }
 
     /**
