@@ -50,7 +50,6 @@ class CreateTextAttribute implements DataPatchInterface
         /** @var  \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->customerSetupFactory->create();
 
-
         $eavSetup->addAttribute(
             Customer::ENTITY,
             self::ATTRIBUTE_CODE,
@@ -66,16 +65,14 @@ class CreateTextAttribute implements DataPatchInterface
             ]
         );
 
-        $customerEntity = $eavSetup->getEavConfig()->getEntityType(Customer::ENTITY);
-        $attributeSetId = $customerEntity->getDefaultAttributeSetId();
-        $attributeSet = $this->attributeSetFactory->create();
-        $attributeGroupId = $attributeSet->getDefaultGroupId($attributeSetId);
+        $attributeSetId = $eavSetup->getDefaultAttributeSetId(Customer::ENTITY);
+        $attributeGroupId = $eavSetup->getDefaultAttributeGroupId(Customer::ENTITY);
 
         $sampleAttribute = $eavSetup->getEavConfig()->getAttribute(Customer::ENTITY, self::ATTRIBUTE_CODE);
         $sampleAttribute->addData([
             'attribute_set_id' => $attributeSetId,
             'attribute_group_id' => $attributeGroupId,
-            'used_in_forms' => ['adminhtml_customer'] //possibles values : adminhtml_checkout,adminhtml_customer,adminhtml_customer_address,customer_account_edit,customer_address_edit,customer_register_address
+            'used_in_forms' => ['adminhtml_customer','customer_account_create','customer_account_edit'] //possibles values : adminhtml_checkout,adminhtml_customer,adminhtml_customer_address,customer_account_edit,customer_address_edit,customer_register_address
         ]);
 
         $sampleAttribute->save();
