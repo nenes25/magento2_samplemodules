@@ -1,4 +1,5 @@
 <?php
+
 namespace Hhennes\CustomerAttributes\Setup\Patch\Data;
 
 use Magento\Customer\Model\Customer;
@@ -7,11 +8,11 @@ use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
-class CreateTextAttribute implements DataPatchInterface
+class CreateSelectAttribute implements DataPatchInterface
 {
 
-    /** @var string Nom de l'attribut à créer */
-    const ATTRIBUTE_CODE = 'sample_text_attribute';
+    /** @var string Code de l'attribut */
+    const ATTRIBUTE_CODE = 'sample_select_attribute';
 
     /**
      * @var ModuleDataSetupInterface
@@ -49,19 +50,18 @@ class CreateTextAttribute implements DataPatchInterface
     {
         /** @var  \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->customerSetupFactory->create();
-
-
         $eavSetup->addAttribute(
             Customer::ENTITY,
             self::ATTRIBUTE_CODE,
             [
-                'type' => 'varchar',
-                'label' => 'Sample Text Attribute',
-                'input' => 'text',
+                'type' => 'int',
+                'label' => 'Sample Attribute Select',
+                'input' => 'select',
+                'source' => \Hhennes\CustomerAttributes\Model\Attribute\Source\SampleSelect::class,
                 'required' => false,
                 'visible' => true,
                 'user_defined' => false,
-                'position' => 100,
+                'position' => 102,
                 'system' => 0,
             ]
         );

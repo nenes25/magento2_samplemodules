@@ -1,25 +1,11 @@
 <?php
-/**
- * 2002-2020 ADVISA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Open Software License (OSL 3.0) that is available
- * through the world-wide-web at this URL: http://www.opensource.org/licenses/OSL-3.0
- * If you are unable to obtain it through the world-wide-web, please send an email
- * to mage@advisa.fr so we can send you a copy immediately.
- *
- * @author ADVISA
- * @copyright 2002-2020 ADVISA
- * @license http://www.opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
- */
 
 namespace Hhennes\CustomerAttributes\Setup\Patch\Data;
 
 use Magento\Customer\Model\Customer;
-use Magento\Eav\Model\Entity\Attribute\Source\Boolean;
 use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
+use Magento\Eav\Model\Entity\Attribute\Source\Boolean;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 
@@ -52,8 +38,7 @@ class CreateYesNoAttribute implements DataPatchInterface
         ModuleDataSetupInterface $moduleDataSetup,
         CustomerSetupFactory $customerSetupFactory,
         AttributeSetFactory $attributeSetFactory
-    )
-    {
+    ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->customerSetupFactory = $customerSetupFactory;
         $this->attributeSetFactory = $attributeSetFactory;
@@ -91,10 +76,12 @@ class CreateYesNoAttribute implements DataPatchInterface
         $sampleAttribute->addData([
             'attribute_set_id' => $attributeSetId,
             'attribute_group_id' => $attributeGroupId,
-            'used_in_forms', ['adminhtml_customer'] //possibles values : adminhtml_checkout,adminhtml_customer,adminhtml_customer_address,customer_account_edit,customer_address_edit,customer_register_address
+            'used_in_forms' => ['adminhtml_customer'] //possibles values : adminhtml_checkout,adminhtml_customer,adminhtml_customer_address,customer_account_edit,customer_address_edit,customer_register_address
         ]);
 
         $sampleAttribute->save();
+
+        return $this;
     }
 
     /**
