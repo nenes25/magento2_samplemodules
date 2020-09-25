@@ -8,7 +8,7 @@ use Magento\Eav\Model\Entity\Attribute\Source\SourceInterface;
 /**
  * Class SampleSelect
  * @package Hhennes\CatalogCategoryAttributes\Model\Attribute\Source
- * Source du pour l'option sample_select_attribute cf. app/code/Hhennes/CatalogCategoryAttributes/view/adminhtml/ui_component/category_form.xml:115
+ * Source pour l'option sample_select_attribute cf. app/code/Hhennes/CatalogCategoryAttributes/view/adminhtml/ui_component/category_form.xml:115
  */
 class SampleSelect extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
