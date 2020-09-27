@@ -1,0 +1,14 @@
+<?php
+/** @var $block Hhennes\CatalogCategoryAttributes\Block\Header */
+if ($category = $block->getCurrentCategory()) : ?>
+    <p><?= __('Category Custom attributes'); ?></p>
+    <ul>
+        <li>sample_text_attribute : <?= $block->getAttributeValue('sample_text_attribute') ?></li>
+        <li>sample_yes_no_attribute : <?= $block->getAttributeValue('sample_yes_no_attribute') ?></li>
+        <li>sample_select_attribute :<?= $block->getAttributeValue('sample_select_attribute') ?></li>
+        <li>sample_date_attribute : <?= $block->getAttributeValue('sample_date_attribute') ?></li>
+        <li>sample_colorpicker_attribute : <?= $block->getAttributeValue('sample_colorpicker_attribute') ?></li>
+        <li>sample_file_attribute : <?= $block->getAttributeValue('sample_file_attribute') ?></li>
+        <li>sample_image_attribute <?= $block->getAttributeValue('sample_image_attribute') ?></li>
+    </ul>
+<?php endif; ?>
