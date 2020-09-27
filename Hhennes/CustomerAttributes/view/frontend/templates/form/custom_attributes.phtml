@@ -1,0 +1,41 @@
+<?php
+/** @var $block Magento\Framework\View\Element\Template */
+$_sampleSelectOptions = $this->helper(Hhennes\CustomerAttributes\Helper\Data::class)->getSelectOptions('sample_select_attribute');
+?>
+<!-- Text Field -->
+<div class="field required">
+    <label for="sample_text_attribute" class="label"><?= __('sample Text attribute'); ?></label>
+    <input type="text" name="sample_text_attribute" id="sample_text_attribute" class="input-text"
+           data-validate="{required:true}"/>
+</div>
+<!-- Yes / No field ( select ) @todo check if helper exists -->
+<div class="field">
+    <label for="sample_yes_no_attribute" class="label"><?= __('sample yes/no attribute'); ?></label>
+    <select name="sample_yes_no_attribute" id="sample_text_attribute">
+        <option value="0"><?= __('No'); ?></option>
+        <option value="1"><?= __('Yes'); ?></option>
+    </select>
+</div>
+<!-- Select field -->
+<div class="field ">
+    <label class="label" for="sample_select_attribute"><span><?= __('sample select attribute') ?></span></label>
+    <select name="sample_select_attribute" title="<?= __('sample select attribute') ?>">
+        <option value=""><?= __('Please select an option'); ?></option>
+        <?php foreach ($_sampleSelectOptions as $option) : ?>
+            <option
+                value="<?= $block->escapeHtmlAttr($option['value']) ?>"><?= $block->escapeHtml($option['label']->getText()) ?></option>
+        <?php endforeach; ?>
+    </select>
+</div>
+
+<!-- File field -->
+<div class="field">
+    <label class="label" for="sample_file_attribute"><span><?= __('sample file attribute') ?></span></label>
+    <input type="file" name="sample_file_attribute" id="sample_file_attribute"/>
+</div>
+
+<!-- Image field -->
+<div class="field">
+    <label class="label" for="sample_image_attribute"><span><?= __('sample Image attribute') ?></span></label>
+    <input type="file" name="sample_image_attribute" id="sample_image_attribute"/>
+</div>
