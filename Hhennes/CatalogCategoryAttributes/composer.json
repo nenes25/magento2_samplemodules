@@ -1,0 +1,20 @@
+{
+    "name": "hhennes/catalogcategoryattributes",
+    "version": "0.1.0",
+    "description": "Sample Magento 2 Catalog Category Attributes examples",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "Academic Free License (AFL)"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Hhennes\\CatalogCategoryAttributes\\": ""
+        }
+    }
+}
