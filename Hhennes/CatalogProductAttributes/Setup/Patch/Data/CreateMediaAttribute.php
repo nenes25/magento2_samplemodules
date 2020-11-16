@@ -54,9 +54,10 @@ class CreateMediaAttribute implements DataPatchInterface
             \Magento\Catalog\Model\Product::ENTITY,
             'hover_image'
         );
-
-        $attributeSetId = $eavSetup->getDefaultAttributeSetId(\Magento\Catalog\Model\Product::ENTITY);
-        $eavSetup->addAttributeToGroup(\Magento\Catalog\Model\Product::ENTITY, $attributeSetId, 'image-management', $id, 10);
+        $attributeSetIds = $eavSetup->getAllAttributeSetIds(\Magento\Catalog\Model\Product::ENTITY);
+        foreach ( $attributeSetIds as $attributeSetId) {
+            $eavSetup->addAttributeToGroup(\Magento\Catalog\Model\Product::ENTITY, $attributeSetId, 'image-management', $id, 10);
+        }
     }
 
     /**
