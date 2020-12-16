@@ -3,93 +3,139 @@
  * @var $block Magento\Framework\View\Element\Template
  */
 ?>
-<form class="form" id="my-form" method="post" data-mage-init='{"validation":{"rules": {"field-4": {"required":true}}}}'>
-    <h2><?= __('Different way of applying rules');?></h2>
-    <fieldset class="fieldset">
-        <div class="field name required">
-            <label class="label" for="field-1"><span>Field 1 (using data-validate)</span></label>
-            <div class="control">
-                <input name="field-1" id="field-1" title="Field 1" value=""  class="input-text" type="text" data-validate='{"required":true, "url": true}'/>
-            </div>
+<h2><?= __('Different way of applying rules'); ?></h2>
+<form class="form" id="my-form" method="post" data-mage-init='{"validation": {}}'>
+    <div class="items">
+        <div class="item title" data-role="collapsible">
+            <a class="switch" data-toggle="trigger" href="#tab-ways">Differents ways</a>
         </div>
-        <div class="field name required">
-            <label class="label" for="field-2"><span>Field 2 (using attribute)</span></label>
-            <div class="control">
-                <input name="field-2" id="field-2" title="Field 2" value="" class="input-text" type="text" required="true"/>
-            </div>
+        <div class="item title" data-role="collapsible">
+            <a class="switch" data-toggle="trigger" href="#tab-jquery">Jquery Validation</a>
         </div>
-        <div class="field name required">
-            <label class="label" for="field-3"><span>Field 3 (using classname)</span></label>
-            <div class="control">
-                <input name="field-3" id="field-3" title="Field 3" value="" type="text" class="input-text required-entry"/>
-            </div>
+        <div class="item title" data-role="collapsible">
+            <a class="switch" data-toggle="trigger" href="#tab-magento">Magento Validation</a>
         </div>
-        <div class="field name required">
-            <label class="label" for="field-4"><span>Field 4 (using data-mage-init)</span></label>
-            <div class="control">
-                <input name="field-4" id="field-4" title="Field 4" value="" class="input-text" type="text"/>
-            </div>
+        <div class="item title" data-role="collapsible">
+            <a class="switch" data-toggle="trigger" href="#tab-custom">Custom Validation</a>
         </div>
-    </fieldset>
+        <div id="tab-ways" class="item content" data-role="content">
+            <h2><?= __('All way to apply validations'); ?></h2>
+            <fieldset class="fieldset">
+                <div class="field name required">
+                    <label class="label" for="field-1"><span>Field 1 (using data-validate)</span></label>
+                    <div class="control">
+                        <input name="field-1" id="field-1" title="Field 1" value="" class="input-text" type="text"
+                               data-validate='{"required":true, "url": true}'/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="field-2"><span>Field 2 (using attribute)</span></label>
+                    <div class="control">
+                        <input name="field-2" id="field-2" title="Field 2" value="" class="input-text" type="text"
+                               required="true"/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="field-3"><span>Field 3 (using classname)</span></label>
+                    <div class="control">
+                        <input name="field-3" id="field-3" title="Field 3" value="" type="text"
+                               class="input-text required-entry"/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="field-4"><span>Field 4 (using data-mage-init)</span></label>
+                    <div class="control">
+                        <input name="field-4" id="field-4" title="Field 4" value="" class="input-text" type="text"/>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <div id="tab-jquery" class="item content" data-role="content">
+            <h2><?= __('Applying all Jquery validation native rules'); ?></h2>
+            <fieldset class="fieldset" name="jquery_rules">
+                <p>Liste des validation disponibles</p>
+                <p>cf. <a href="https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods"
+                          target="_blank">
+                        https://jqueryvalidation.org/documentation/#link-list-of-built-in-validation-methods</a></p>
+                <ul>
+                    <li>required</li>
+                    <li>remote</li>
+                    <li>minlength</li>
+                    <li>maxlength</li>
+                    <li>min</li>
+                    <li>max</li>
+                    <li>range</li>
+                    <li>step</li>
+                    <li>email</li>
+                    <li>url</li>
+                    <li>date</li>
+                    <li>dateISO</li>
+                    <li>number</li>
+                    <li>digits</li>
+                    <li>equalTo</li>
+                </ul>
 
-    <h2><?= __('Applying all Jquery validation native rules');?></h2>
-    <fieldset class="fieldset" name="jquery_rules">
-        <p>Liste des validation disponibles</p>
-        <ul>
-            <li>required</li>
-            <li>remote</li>
-            <li>minlength</li>
-            <li>maxlength</li>
-            <li>min</li>
-            <li>max</li>
-            <li>range</li>
-            <li>step</li>
-            <li>email</li>
-            <li>url</li>
-            <li>date</li>
-            <li>dateISO</li>
-            <li>number</li>
-            <li>digits</li>
-            <li>equalTo</li>
-        </ul>
-        <div class="field name required">
-            <label class="label" for="jquery_validation_url"><span>Jquery rule url</span></label>
-            <div class="control">
-                <input name="jquery_validation_url" id="jquery_validation_url" title="jquery_validation_url" value="" type="text" class="input-text" data-validate='{"url":true}'/>
-            </div>
+                <div class="field name required">
+                    <label class="label" for="jquery_validation_url"><span>Jquery rule url</span></label>
+                    <div class="control">
+                        <input name="jquery_validation_url" id="jquery_validation_url" title="jquery_validation_url"
+                               value="" type="text" class="input-text" data-validate='{"url":true}'/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="jquery_validation_url"><span>Jquery rule email</span></label>
+                    <div class="control">
+                        <input name="jquery_validation_email" id="jquery_validation_email"
+                               title="jquery_validation_email"
+                               value="" type="text" class="input-text" data-validate='{"email":true}'/>
+                    </div>
+                </div>
+            </fieldset>
         </div>
-        <div class="field name required">
-            <label class="label" for="jquery_validation_url"><span>Jquery rule email</span></label>
-            <div class="control">
-                <input name="jquery_validation_email" id="jquery_validation_email" title="jquery_validation_email" value="" type="text" class="input-text" data-validate='{"email":true}'/>
-            </div>
+        <div id="tab-magento" class="item content" data-role="content">
+            <h2><?= __('Applying all Magento validation native rules'); ?></h2>
+            <p><?= __('All available classes are visibles here <strong>%1</strong>', 'lib/web/mage/validation.js'); ?></p>
+            <fieldset class="fieldset" name="magento_rules">
+                <div class="field name required">
+                    <label class="label"
+                           for="magento_validation_letters-only"><span>magento_validation_letters-only</span></label>
+                    <div class="control">
+                        <input name="magento_validation_letters-only" id="magento_validation_letters-only"
+                               title="magento_validation_letters-only" value="" type="text" class="input-text"
+                               data-validate='{"letters-only":true}'/>
+                    </div>
+                </div>
+            </fieldset>
         </div>
-    </fieldset>
-
-    <h2><?= __('Applying all Magento validation native rules');?></h2>
-    <fieldset class="fieldset" name="magento_rules">
-        <div class="field name required">
-            <label class="label" for="magento_validation_letters-only"><span>magento_validation_letters-only</span></label>
-            <div class="control">
-                <input name="magento_validation_letters-only" id="magento_validation_letters-only" title="magento_validation_letters-only" value="" type="text" class="input-text" data-validate='{"letters-only":true}' />
-            </div>
+        <div id="tab-custom" class="item content" data-role="content">
+            <h2><?= __('Applying some custom rules'); ?></h2>
+            <fieldset class="fieldset" name="custom_rules">
+                <div class="field name required">
+                    <label class="label"
+                           for="other_validation"><span><?= __('Custom validation 5 words'); ?></span></label>
+                    <div class="control">
+                        <input name="other_validation" id="other_validation" title="other_validation" value=""
+                               type="text"
+                               class="input-text validate-five-words"/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label"
+                           for="other_validation"><span><?= __('Custom validation herve'); ?></span></label>
+                    <div class="control">
+                        <input name="custom_validation_herve" id="custom_validation_herve"
+                               title="custom_validation_herve" value=""
+                               type="text"
+                               class="input-text validate-herve"/>
+                    </div>
+                </div>
+            </fieldset>
         </div>
-    </fieldset>
-
-    <h2><?= __('Applying some custom rules');?></h2>
-    <fieldset class="fieldset" name="custom_rules">
-        <div class="field name required">
-            <label class="label" for="other_validation"><span>Custom validation</span></label>
-            <div class="control">
-                <input name="other_validation" id="other_validation" title="other_validation" value="" type="text" class="input-text validate-five-words"/>
-            </div>
-        </div>
-    </fieldset>
-
+    </div>
     <div class="actions-toolbar">
         <div class="primary">
             <button type="submit" title="Submit" class="action submit primary">
-                <span><?= __('Submit');?></span>
+                <span><?= __('Submit'); ?></span>
             </button>
         </div>
     </div>
