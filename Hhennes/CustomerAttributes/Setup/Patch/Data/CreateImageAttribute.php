@@ -35,7 +35,7 @@ class CreateImageAttribute implements DataPatchInterface
     /**
      * @var SerializerInterface
      */
-    private SerializerInterface $serializer;
+    private $serializer;
 
     /**
      * CreateExportFlags constructor.
