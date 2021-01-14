@@ -1,8 +1,10 @@
 <?php
 /** @var $block Magento\Customer\Block\Form\Edit */
+/** @var \Magento\Framework\View\Helper\SecureHtmlRenderer $secureRenderer */
 
 $customAttributeText = $block->getCustomer()->getCustomAttribute('sample_text_attribute');
 $customAttributeYesNo = $block->getCustomer()->getCustomAttribute('sample_yes_no_attribute');
+$customAttributeYesNoCheckbox = $block->getCustomer()->getCustomAttribute('sample_yes_no_checkbox');
 $customAttributeSelect = $block->getCustomer()->getCustomAttribute('sample_select_attribute');
 $_sampleSelectOptions = $this->helper(Hhennes\CustomerAttributes\Helper\Data::class)->getSelectOptions('sample_select_attribute');
 $customAttributeFile = $block->getCustomer()->getCustomAttribute('sample_file_attribute');
@@ -25,6 +27,38 @@ $customAttributeImage = $block->getCustomer()->getCustomAttribute('sample_image_
                 value="1" <?php if ($customAttributeYesNo && $customAttributeYesNo->getValue() == 1): ?> selected="selected"<?php endif ?>><?= __('Yes'); ?></option>
         </select>
     </div>
+    <!-- Yes / No field ( checkbox with js behaviour ) -->
+    <div class="field">
+        <label for="sample_yes_no_checkbox_choice" class="label"><?= __('sample yes/no attribute checkbox'); ?></label>
+        <input type="checkbox" name="sample_yes_no_checkbox_choice" id="sample_yes_no_checkbox_choice"
+               <?php if ($customAttributeYesNoCheckbox && $customAttributeYesNoCheckbox->getValue() == 1): ?> checked="checked"<?php endif;?>
+         />
+        <input type="hidden" name="sample_yes_no_checkbox" id="sample_yes_no_checkbox"
+               value="<?=($customAttributeYesNoCheckbox && $customAttributeYesNoCheckbox->getValue() == 1) ? 1 : 0 ;?>"
+        />
+    </div>
+    <?php
+    //Magento 2.4 secure inline js
+    $scriptString = <<<script
+    require([
+        "jquery",
+        "mage/mage"
+    ], function($){
+       console.log('it works secured !');
+        var sampleYesNoCheckBoxChoice = $('#sample_yes_no_checkbox_choice');
+        var sampleYesNoCheckBoxField = $('#sample_yes_no_checkbox');
+        console.log(sampleYesNoCheckBoxChoice);
+        $(sampleYesNoCheckBoxChoice).on('change',function(){
+            var sampleYesNoValue = ( $(this).is(':checked') ) ? 1 : 0 ;
+            console.log('sampleYesNoValue',sampleYesNoValue);
+            $(sampleYesNoCheckBoxField).val(sampleYesNoValue);
+        });
+
+        });
+script;
+    ?>
+    <?= /* @noEscape */ $secureRenderer->renderTag('script', [], $scriptString, false) ?>
+
     <!-- Select field -->
     <div class="field">
         <label class="label" for="sample_select_attribute"><span><?= __('sample select attribute') ?></span></label>
