@@ -1,0 +1,12 @@
+{
+    "hhennes_customer_extensionattributes": {
+        "column": {
+            "customer_id": true,
+            "customer_code": true,
+            "customer_enterprise_code": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

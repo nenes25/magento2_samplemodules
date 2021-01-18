@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <!--
+        Rajouter les extensions ici ne suffit pas
+        Dans le cas de champs de la table il faut les créer via le fichier db_schema.xml
+        Pour tous les champs il faut ajouter un plugin afterGet et afterGetList via les plugins (cf. di.xml )
+    -->
+    <extension_attributes for="Magento\Customer\Api\Data\CustomerInterface">
+        <attribute code="customer_code" type="string"/>
+        <attribute code="customer_enterprise_code" type="string"/>
+    </extension_attributes>
+</config>
