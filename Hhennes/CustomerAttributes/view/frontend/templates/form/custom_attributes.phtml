@@ -2,6 +2,8 @@
 /** @var $block Magento\Framework\View\Element\Template */
 $_sampleSelectOptions = $this->helper(Hhennes\CustomerAttributes\Helper\Data::class)->getSelectOptions('sample_select_attribute');
 ?>
+<fieldset class="fieldset">
+    <legend class="legend"><?= __('Sample Custom Attributes');?></legend>
 <!-- Text Field -->
 <div class="field required">
     <label for="sample_text_attribute" class="label"><?= __('sample Text attribute'); ?></label>
