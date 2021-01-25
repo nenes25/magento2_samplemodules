@@ -1,0 +1,21 @@
+{
+  "name": "hhennes/custom-csp",
+  "version": "1.0.0",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "Academic Free License (AFL)",
+    "Proprietary"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hhennes\\CustomCsp\\": ""
+    }
+  }
+}

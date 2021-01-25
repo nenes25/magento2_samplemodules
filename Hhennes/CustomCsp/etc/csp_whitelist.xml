@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!--
+  Add custom Content Security Policies ( CSP )
+  To magento instance
+  Cf. https://devdocs.magento.com/guides/v2.4/extension-dev-guide/security/content-security-policies.html
+-->
+<csp_whitelist xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Csp:etc/csp_whitelist.xsd">
+    <policies>
+        <!-- Defines the sources for JavaScript <script> elements. -->
+        <policy id="script-src">
+            <values>
+                <value id="cdnjs" type="host">https://cdnjs.com</value>
+            </values>
+        </policy>
+
+        <!-- Defines the sources from which images can be loaded.-->
+        <policy id="img-src">
+            <values>
+                <value id="osm-1" type="host">https://a.tile.openstreetmap.org</value>
+                <value id="osm-2" type="host">https://b.tile.openstreetmap.org</value>
+                <value id="osm-3" type="host">https://c.tile.openstreetmap.org</value>
+            </values>
+        </policy>
+        <policy id="media-src">
+            <values>
+                <value id="osm-1" type="host">https://a.tile.openstreetmap.org</value>
+                <value id="osm-2" type="host">https://b.tile.openstreetmap.org</value>
+                <value id="osm-3" type="host">https://c.tile.openstreetmap.org</value>
+            </values>
+        </policy>
+
+        <!-- Defines which sources can serve fonts. -->
+        <policy id="font-src">
+            <values>
+                <value id="google-fonts" type="host">https://fonts.googleapis.com</value>
+                <value id="fonts-data" type="host">data:</value>
+            </values>
+        </policy>
+
+        <!-- Defines the sources for elements such as <frame> and <iframe>. -->
+        <policy id="frame-src">
+            <values>
+                <value id="youtube" type="host">https://www.youtube.com/</value>
+            </values>
+        </policy>
+
+        <!-- Defines the sources that can be loaded using script interfaces. -->
+        <policy id="connect-src">
+            <values>
+                <value id="devdocs" type="host">https://devdocs.magento.com</value>
+            </values>
+        </policy>
+    </policies>
+</csp_whitelist>

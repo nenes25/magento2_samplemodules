@@ -8,7 +8,9 @@ Samples modules for Magento 2.3 +
 - CatalogProductAttributes
 > WIP
 - CliCommands
-> Add custom cli command  
+> Add custom cli command 
+- CustomCsp
+> Add custom Content security Policies ( Csp ) to your magento instance
 - CustomerAddressAttributes
 > WIP
 - CustomerAttributes
