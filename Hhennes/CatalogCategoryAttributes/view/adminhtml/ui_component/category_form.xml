@@ -226,10 +226,12 @@
                         <required>false</required>
                         <allowedExtensions>jpg jpeg gif png svg</allowedExtensions>
                         <uploaderConfig>
-                            <param name="url" xsi:type="url" path="hhennes_catalogcategoryattributes/category_attributes/uploadImage" />
+                            <param name="url" xsi:type="url" path="catalog/category_image/upload" />
                         </uploaderConfig>
                         <placeholderType>image</placeholderType>
                         <previewTmpl>Magento_Catalog/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>catalog/category</initialMediaGalleryOpenSubpath>
                         <maxFileSize>4194304</maxFileSize>
                     </settings>
                 </imageUploader>

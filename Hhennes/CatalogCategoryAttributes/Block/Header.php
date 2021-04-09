@@ -3,7 +3,6 @@
 
 namespace Hhennes\CatalogCategoryAttributes\Block;
 
-
 use Magento\Framework\View\Element\Template;
 
 class Header extends Template
@@ -26,8 +25,8 @@ class Header extends Template
     public function __construct(
         Template\Context $context,
         \Magento\Framework\Registry $registry,
-        array $data = [])
-    {
+        array $data = []
+    ) {
         parent::__construct($context, $data);
         $this->registry = $registry;
     }
@@ -51,10 +50,9 @@ class Header extends Template
      */
     public function getAttributeValue($attributeCode)
     {
-        if ( $this->getCurrentCategory()->getCustomAttribute($attributeCode)){
+        if ($this->getCurrentCategory()->getCustomAttribute($attributeCode)) {
             return $this->getCurrentCategory()->getCustomAttribute($attributeCode)->getValue();
         }
         return '';
     }
-
 }

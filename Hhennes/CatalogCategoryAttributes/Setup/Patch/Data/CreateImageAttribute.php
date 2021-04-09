@@ -5,8 +5,8 @@ namespace Hhennes\CatalogCategoryAttributes\Setup\Patch\Data;
 
 use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Eav\Setup\EavSetupFactory;
+use Magento\Catalog\Model\Category\Attribute\Backend\Image;
 use Magento\Framework\Setup\Patch\PatchInterface;
-
 
 class CreateImageAttribute implements DataPatchInterface
 {
@@ -54,7 +54,7 @@ class CreateImageAttribute implements DataPatchInterface
                 'user_defined' => false,
                 'default' => null,
                 'group' => '',
-                'backend' => ''
+                'backend' => Image::class
             ]
         );
 

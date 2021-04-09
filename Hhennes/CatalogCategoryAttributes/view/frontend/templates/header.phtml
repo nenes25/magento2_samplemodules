@@ -1,6 +1,6 @@
 <?php
 /** @var $block Hhennes\CatalogCategoryAttributes\Block\Header */
-if ($category = $block->getCurrentCategory()) : ?>
+if ($category = $block->getCurrentCategory()): ?>
     <p><?= __('Category Custom attributes'); ?></p>
     <ul>
         <li>sample_text_attribute : <?= $block->getAttributeValue('sample_text_attribute') ?></li>

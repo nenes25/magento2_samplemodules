@@ -7,7 +7,6 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Framework\Setup\Patch\PatchInterface;
 
-
 class CreateFileAttribute implements DataPatchInterface
 {
 
