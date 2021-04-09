@@ -3,7 +3,6 @@
 
 namespace Hhennes\CustomerAttributes\Setup\Patch\Data;
 
-
 use Magento\Customer\Model\Customer;
 use Magento\Customer\Setup\CustomerSetupFactory;
 use Magento\Eav\Model\Entity\Attribute\SetFactory as AttributeSetFactory;
@@ -39,8 +38,7 @@ class CreateYesNoCheckBoxAttribute implements DataPatchInterface
         ModuleDataSetupInterface $moduleDataSetup,
         CustomerSetupFactory $customerSetupFactory,
         AttributeSetFactory $attributeSetFactory
-    )
-    {
+    ) {
         $this->moduleDataSetup = $moduleDataSetup;
         $this->customerSetupFactory = $customerSetupFactory;
         $this->attributeSetFactory = $attributeSetFactory;

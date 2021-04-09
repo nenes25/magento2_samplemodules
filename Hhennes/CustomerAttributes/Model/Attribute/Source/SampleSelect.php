@@ -3,7 +3,6 @@
 
 namespace Hhennes\CustomerAttributes\Model\Attribute\Source;
 
-
 class SampleSelect extends \Magento\Eav\Model\Entity\Attribute\Source\AbstractSource
 {
 

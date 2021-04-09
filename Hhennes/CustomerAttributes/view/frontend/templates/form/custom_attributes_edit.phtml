@@ -64,7 +64,7 @@ script;
         <label class="label" for="sample_select_attribute"><span><?= __('sample select attribute') ?></span></label>
         <select name="sample_select_attribute" title="<?= __('sample select attribute') ?>">
             <option value=""><?= __('Please select an option'); ?></option>
-            <?php foreach ($_sampleSelectOptions as $option) : ?>
+            <?php foreach ($_sampleSelectOptions as $option): ?>
                 <option
                     value="<?= $block->escapeHtmlAttr($option['value']) ?>" <?php if ($customAttributeSelect && $customAttributeSelect->getValue() == $option['value']): ?> selected="selected"<?php endif ?>><?= $block->escapeHtml($option['label']->getText()) ?></option>
             <?php endforeach; ?>
@@ -75,7 +75,7 @@ script;
     <div class="field">
         <label class="label" for="sample_file_attribute"><span><?= __('sample file attribute') ?></span></label>
         <input type="file" name="sample_file_attribute" id="sample_file_attribute">
-        <?php if (($customAttributeFile)) : ?>
+        <?php if (($customAttributeFile)): ?>
             <p><?= $customAttributeFile->getValue() ?></p>
         <?php endif; ?>
     </div>
@@ -84,7 +84,7 @@ script;
     <div class="field">
         <label class="label" for="sample_image_attribute"><span><?= __('sample image attribute') ?></span></label>
         <input type="file" name="sample_image_attribute" id="sample_image_attribute">
-        <?php if (($customAttributeImage)) : ?>
+        <?php if (($customAttributeImage)): ?>
             <p><?= $customAttributeImage->getValue() ?></p>
             <img src="<?= $this->helper(Hhennes\CustomerAttributes\Helper\Data::class)
                 ->getCustomerImageUrl($customAttributeImage->getValue()); ?>"/>

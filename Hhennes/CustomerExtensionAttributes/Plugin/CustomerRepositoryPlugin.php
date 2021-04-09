@@ -36,8 +36,7 @@ class CustomerRepositoryPlugin
     public function __construct(
         ExtensionAttributesFactory $extensionAttributesFactory,
         ResourceConnection $connection
-    )
-    {
+    ) {
         $this->extensionAttributesFactory = $extensionAttributesFactory;
         $this->connection = $connection;
     }

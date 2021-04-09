@@ -27,5 +27,4 @@ class SampleCommand extends Command
     {
         $output->writeln('<info>Sample command without interactions</info>');
     }
-
 }

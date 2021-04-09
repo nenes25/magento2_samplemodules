@@ -3,7 +3,6 @@
 
 namespace Hhennes\CustomerExtensionAttributes\Controller\Test;
 
-
 use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaBuilder;
 use Magento\Framework\App\Action\HttpGetActionInterface;
@@ -42,8 +41,7 @@ class Index implements HttpGetActionInterface
         CustomerRepositoryInterface $customerRepository,
         SearchCriteriaBuilder $searchCriteriaBuilder,
         ResultFactory $resultFactory
-    )
-    {
+    ) {
         $this->resultFactory = $resultFactory;
         $this->customerRepository = $customerRepository;
         $this->searchCriteriaBuilder = $searchCriteriaBuilder;
@@ -55,7 +53,7 @@ class Index implements HttpGetActionInterface
      */
     public function execute()
     {
-        if ( $id_customer =  $this->request->getParam('id_customer')) {
+        if ($id_customer =  $this->request->getParam('id_customer')) {
             $customer = $this->customerRepository->getById($id_customer);
             dump($customer);
             $pageContent = '';
@@ -71,6 +69,5 @@ class Index implements HttpGetActionInterface
 
     protected function _getCustomer()
     {
-
     }
 }

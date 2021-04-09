@@ -23,7 +23,7 @@ $_sampleSelectOptions = $this->helper(Hhennes\CustomerAttributes\Helper\Data::cl
     <label class="label" for="sample_select_attribute"><span><?= __('sample select attribute') ?></span></label>
     <select name="sample_select_attribute" title="<?= __('sample select attribute') ?>">
         <option value=""><?= __('Please select an option'); ?></option>
-        <?php foreach ($_sampleSelectOptions as $option) : ?>
+        <?php foreach ($_sampleSelectOptions as $option): ?>
             <option
                 value="<?= $block->escapeHtmlAttr($option['value']) ?>"><?= $block->escapeHtml($option['label']->getText()) ?></option>
         <?php endforeach; ?>
