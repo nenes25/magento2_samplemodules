@@ -5,6 +5,9 @@ Samples modules for Magento 2.3 +
 > Programmatically create all types of category attributes  
 > and display them in admin form with category_form ui_component  
 > It also add a custom block in frontend to display the values of the attributes
+- CatalogFixedProductTax
+> Create and manage a Fixed Product Tax Attribute "ecotax"  
+> Change configuration to enable wee tax
 - CatalogProductAttributes
 > WIP
 - CliCommands
