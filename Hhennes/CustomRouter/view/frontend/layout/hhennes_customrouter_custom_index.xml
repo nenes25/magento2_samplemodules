@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Custom sample front controller</title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <container name="sample_text_block_wrapper" htmlTag="div" htmlClass="column" htmlId="test">
+                <block class="Magento\Framework\View\Element\Text" name="sample_text_block">
+                    <arguments>
+                        <argument name="text" xsi:type="string" translate="true">Sample controller content</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
