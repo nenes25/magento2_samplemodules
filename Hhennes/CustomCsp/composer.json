@@ -7,8 +7,7 @@
     "magento/framework": "*"
   },
   "license": [
-    "Academic Free License (AFL)",
-    "Proprietary"
+    "Academic Free License (AFL)"
   ],
   "autoload": {
     "files": [
