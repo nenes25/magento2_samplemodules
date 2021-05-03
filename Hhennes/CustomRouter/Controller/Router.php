@@ -42,15 +42,14 @@ class Router implements RouterInterface
         $pathInfo = trim($request->getPathInfo(), '/');
         //If the path info start with sample_router we take it
         if (strpos($pathInfo, 'sample_router') !== false) {
+
+            //Define the real controller
             $request->setModuleName('hhennes_customrouter');
             $request->setControllerName('custom');
             $request->setActionName('index');
             $request->setParams(['test' =>'ok']);
 
-            /*dump($request);
-            die('debug');*/
-
-            //Redirect to the real controller
+            //Redirect to it
             return $this->actionFactory->create(
                 Forward::class,
                 ['request' => $request]
