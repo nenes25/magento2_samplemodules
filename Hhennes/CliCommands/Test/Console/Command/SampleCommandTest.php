@@ -24,7 +24,10 @@ class SampleCommandTest extends TestCase
 
     public function testExecute():void
     {
-        $this->commandTester->execute([]);
+        //Assert that command return 0 ( no error )
+        $this->assertEquals(0,$this->commandTester->execute([]));
+
+        //Assert command display
         $this->assertEquals(
             'Sample command without interactions' . PHP_EOL,
             $this->commandTester->getDisplay()

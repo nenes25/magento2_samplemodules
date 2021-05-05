@@ -26,5 +26,6 @@ class SampleCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->writeln('<info>Sample command without interactions</info>');
+        return 0;
     }
 }
