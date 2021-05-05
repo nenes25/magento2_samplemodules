@@ -1,6 +1,6 @@
 <?php
 
-namespace Hhennes\CliCommands\Test\Console\Command;
+namespace Hhennes\CliCommands\Test\Unit\Console\Command;
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Tester\CommandTester;
