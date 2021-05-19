@@ -1,0 +1,19 @@
+{
+  "name": "hhennes/sales-admin-pdf-viewer",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hhennes\\SalesAdminPdfViewer\\": ""
+    }
+  }
+}

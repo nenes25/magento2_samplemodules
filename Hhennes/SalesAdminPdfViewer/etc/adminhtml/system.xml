@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="hhennes" translate="label" sortOrder="999999" class="hhennes-tab">
+            <label>Hhennes Extensions</label>
+        </tab>
+        <section id="hhennes_salesadminpdfviewer" translate="label" type="text" sortOrder="20" showInDefault="1"
+                 showInWebsite="0"
+                 showInStore="0">
+            <label><![CDATA[Pdf print]]></label>
+            <tab>hhennes</tab>
+            <resource>Hhennes_SalesAdminPdfViewer::config</resource>
+            <group id="settings" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0"
+                   showInStore="0">
+                <label>Settings</label>
+                <field id="enable_pdf_display" translate="label comment" type="select" sortOrder="5" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label>Enable display of pdf in admin</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>The admin pdf (invoice / delivery / creditmemo ) will be printed in browser instead of being downloaded, usefull when working on pdf customization</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

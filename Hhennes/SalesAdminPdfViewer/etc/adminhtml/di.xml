@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Sales\Controller\Adminhtml\Creditmemo\AbstractCreditmemo\PrintAction">
+        <plugin name="hhennes_creditmemo_print_action"
+                type="Hhennes\SalesAdminPdfViewer\Plugin\Controller\Adminhtml\Creditmemo\AbstractCreditmemo\PrintActionPlugin"/>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Invoice\AbstractInvoice\PrintAction">
+        <plugin name="hhennes_invoice_print_action"
+                type="Hhennes\SalesAdminPdfViewer\Plugin\Controller\Adminhtml\Invoice\AbstractInvoice\PrintActionPlugin"/>
+    </type>
+    <type name="Magento\Sales\Controller\Adminhtml\Shipment\AbstractShipment\PrintAction">
+        <plugin name="hhennes_shipment_print_action"
+                type="Hhennes\SalesAdminPdfViewer\Plugin\Controller\Adminhtml\Shipment\AbstractShipment\PrintActionPlugin"/>
+    </type>
+</config>

@@ -30,3 +30,5 @@ Samples modules for Magento 2.3 +
 > Programmatically create attributes for order
 - QuoteAttributes
 > WIP
+- SalesAdminPdfViewer
+> Add an option to display the pdf in the browser, instead of downloading it, usefull when working on pdf customizations
