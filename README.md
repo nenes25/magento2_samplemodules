@@ -14,6 +14,8 @@ Samples modules for Magento 2.3 +
 > Add custom cli command 
 - CustomCsp
 > Add custom Content security Policies ( Csp ) to your magento instance
+- CustomRouter
+> Add a custom Router  
 - CustomerAddressAttributes
 > WIP
 - CustomerAttributes
