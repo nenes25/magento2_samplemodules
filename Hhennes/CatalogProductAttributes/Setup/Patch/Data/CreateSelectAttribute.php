@@ -72,6 +72,8 @@ class CreateSelectAttribute implements DataPatchInterface
             $eavSetup->addAttributeToGroup(Product::ENTITY, $attributeSetId, 'product-details', $id, 10);
         }
         $this->initOptions();
+
+        return $this;
     }
 
     /**

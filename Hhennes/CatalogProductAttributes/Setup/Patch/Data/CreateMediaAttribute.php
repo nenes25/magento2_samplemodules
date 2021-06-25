@@ -58,6 +58,8 @@ class CreateMediaAttribute implements DataPatchInterface
         foreach ( $attributeSetIds as $attributeSetId) {
             $eavSetup->addAttributeToGroup(\Magento\Catalog\Model\Product::ENTITY, $attributeSetId, 'image-management', $id, 10);
         }
+
+        return $this;
     }
 
     /**

@@ -65,6 +65,8 @@ class CreateSelectWithModelAttribute implements DataPatchInterface
         foreach ($attributeSetIds as $attributeSetId) {
             $eavSetup->addAttributeToGroup(Product::ENTITY, $attributeSetId, 'product-details', $id, 10);
         }
+
+        return $this;
     }
 
     /**
