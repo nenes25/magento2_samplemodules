@@ -1,20 +1,26 @@
 {
-  "name": "hhennes/custom-csp",
-  "version": "1.0.0",
-  "description": "N/A",
-  "type": "magento2-module",
-  "require": {
-    "magento/framework": "*"
-  },
-  "license": [
-    "Academic Free License (AFL)"
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "hhennes/custom-csp",
+    "description": "Sample Magento 2 module for implementing csp policies",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Hhennes",
+            "email": "contact@h-hennes.fr",
+            "homepage": "https://www.h-hennes.fr/blog/"
+        }
     ],
-    "psr-4": {
-      "Hhennes\\CustomCsp\\": ""
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "AFL-3.0"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Hhennes\\CustomCsp\\": ""
+        }
     }
-  }
 }
