@@ -4,10 +4,14 @@
 namespace Hhennes\SampleCarrier\Model\Carrier;
 
 
+use Magento\Framework\Event\ManagerInterface;
 use Magento\Quote\Model\Quote\Address\RateRequest;
 use Magento\Shipping\Model\Carrier\AbstractCarrier;
 use Magento\Shipping\Model\Carrier\CarrierInterface;
 
+/**
+ * Basic Carrier with fixed price configurable in back office
+ */
 class Basic extends AbstractCarrier implements CarrierInterface
 {
 
@@ -31,6 +35,7 @@ class Basic extends AbstractCarrier implements CarrierInterface
      * @var \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory
      */
     private $rateMethodFactory;
+    private ManagerInterface $eventManager;
 
     /**
      * @param \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
@@ -38,6 +43,7 @@ class Basic extends AbstractCarrier implements CarrierInterface
      * @param \Psr\Log\LoggerInterface $logger
      * @param \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory
      * @param \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory
+     * @param ManagerInterface $eventManager
      * @param array $data
      */
     public function __construct(
@@ -46,6 +52,7 @@ class Basic extends AbstractCarrier implements CarrierInterface
         \Psr\Log\LoggerInterface $logger,
         \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory,
         \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory,
+        ManagerInterface $eventManager,
         array $data = []
     )
     {
@@ -53,6 +60,7 @@ class Basic extends AbstractCarrier implements CarrierInterface
 
         $this->rateResultFactory = $rateResultFactory;
         $this->rateMethodFactory = $rateMethodFactory;
+        $this->eventManager = $eventManager;
     }
 
     /**
@@ -81,7 +89,23 @@ class Basic extends AbstractCarrier implements CarrierInterface
         $method->setPrice($shippingCost);
         $method->setCost($shippingCost);
 
-        $result->append($method);
+        /**
+         * Good practice to add en event so external module can interact with the method
+         * For example another module can hide the method in an observer by setting
+         * $method->setHideMethod(true);
+         * eventName 'carrier_append_method_hhennes_basic'
+         */
+        $this->eventManager->dispatch(
+            'carrier_append_method_' . $this->_code,
+            [
+                'method' => $method,
+                'request' => $request
+            ]
+        );
+
+        if (null === $method->getHideMethod()) {
+            $result->append($method);
+        }
 
         return $result;
     }
