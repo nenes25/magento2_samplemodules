@@ -13,7 +13,7 @@ class SampleCommand extends Command
     /**
      * @inheritDoc
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('hhennes:cli:samplecommand');
         $this->setDescription('This is a sample basic command.');
@@ -23,7 +23,7 @@ class SampleCommand extends Command
     /**
      * @inheritDoc
      */
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Sample command without interactions</info>');
         return 0;
