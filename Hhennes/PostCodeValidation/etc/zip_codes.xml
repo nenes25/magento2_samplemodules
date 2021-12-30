@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Directory:etc/zip_codes.xsd">
+    <zip countryCode="FR">
+        <codes>
+            <code id="pattern_6" active="true" example="123456">^[0-9]{6}$</code>
+        </codes>
+    </zip>
+</config>
