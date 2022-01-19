@@ -4,7 +4,15 @@
         <arguments>
             <argument name="commands" xsi:type="array">
                 <item name="hhennes_sample_command" xsi:type="object">Hhennes\CliCommands\Console\Command\SampleCommand</item>
+                <item name="hhennes_sample_command_name_di" xsi:type="object">Hhennes\CliCommands\Console\Command\SampleDiNameCommand</item>
             </argument>
+        </arguments>
+    </type>
+
+    <!-- Configure the name of the command trough di -->
+    <type name="Hhennes\CliCommands\Console\Command\SampleDiNameCommand">
+        <arguments>
+            <argument name="name" xsi:type="string">hhennes:cli:di-samplecommand</argument>
         </arguments>
     </type>
 </config>

@@ -8,9 +8,10 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 /**
- * This command is declared in a standard Symfony way
+ * The name of this command is defined in the di.xml file
+ * see
  */
-class SampleCommand extends Command
+class SampleDiNameCommand extends Command
 {
 
     /**
@@ -18,8 +19,7 @@ class SampleCommand extends Command
      */
     protected function configure(): void
     {
-        $this->setName('hhennes:cli:samplecommand');
-        $this->setDescription('This is a sample basic command.');
+        $this->setDescription('This is a sample basic command with name configured with di.');
         parent::configure();
     }
 
@@ -28,7 +28,7 @@ class SampleCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $output->writeln('<info>Sample command without interactions</info>');
+        $output->writeln('<info>Sample command without interactions with name configured with di</info>');
         return 0;
     }
 }
