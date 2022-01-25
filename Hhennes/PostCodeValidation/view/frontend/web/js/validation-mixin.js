@@ -1,7 +1,6 @@
 define(['jquery'], function($) {
     'use strict';
     return function() {
-        console.log('validator added');
         $.validator.addMethod(
             'validate-custom-postcode-fr',
             function(value) {
