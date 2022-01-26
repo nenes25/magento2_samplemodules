@@ -11,4 +11,7 @@ if ($category = $block->getCurrentCategory()): ?>
         <li>sample_file_attribute : <?= $block->getAttributeValue('sample_file_attribute') ?></li>
         <li>sample_image_attribute <?= $block->getAttributeValue('sample_image_attribute') ?></li>
     </ul>
+    <div class="wysiwyg-attribute">
+        <?= $block->getAttributeValue('sample_editor_attribute') ?>
+    </div>
 <?php endif; ?>
