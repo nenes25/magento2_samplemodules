@@ -25,7 +25,7 @@
                 <dataType>string</dataType>
                 <placeholder>My Placeholder </placeholder>
             </settings>
-            <!-- Ancienne Syntaxe ( Attention a bien elever les noeuds sur fields pour que ça fonctionne
+            <!-- Ancienne Syntaxe ( Attention a bien enlever les noeuds sur fields pour que ça fonctionne
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
                     <item name="label" translate="true" xsi:type="string">Sample Text Attribute</item>
@@ -128,6 +128,35 @@
                 </item>
             </argument>
             -->
+        </field>
+
+        <!-- Attribut avec editeur -->
+        <field name="sample_editor_attribute" sortOrder="55" formElement="wysiwyg">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="wysiwygConfigData" xsi:type="array">
+                        <item name="height" xsi:type="string">100px</item>
+                        <item name="add_variables" xsi:type="boolean">false</item>
+                        <item name="add_widgets" xsi:type="boolean">false</item>
+                        <item name="add_images" xsi:type="boolean">true</item>
+                        <item name="add_directives" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="source" xsi:type="string">category</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Sample editor attribute</label>
+                <scopeLabel>[STORE VIEW]</scopeLabel>
+                <dataScope>sample_editor_attribute</dataScope>
+            </settings>
+            <formElements>
+                <wysiwyg>
+                    <settings>
+                        <rows>8</rows>
+                        <wysiwyg>true</wysiwyg>
+                    </settings>
+                </wysiwyg>
+            </formElements>
         </field>
 
         <!-- Attribut de type color picker cf. https://devdocs.magento.com/guides/v2.4/ui_comp_guide/components/ui-colorpicker.html -->
