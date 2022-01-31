@@ -3,6 +3,7 @@
 
 namespace Hhennes\CliCommands\Console\Command;
 
+use Magento\Framework\Console\Cli;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -29,6 +30,6 @@ class SampleDiNameCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $output->writeln('<info>Sample command without interactions with name configured with di</info>');
-        return 0;
+        return Cli::RETURN_SUCCESS;
     }
 }
