@@ -3,6 +3,7 @@
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
     <default>
         <payment>
+            <!-- Payment method old way -->
             <lunchvoucher>
                 <active>1</active>
                 <model>Hhennes\SamplePayment\Model\Payment\LunchVoucher</model>
@@ -12,6 +13,20 @@
                 <payment_action>true</payment_action>
                 <group>samplepayment</group>
             </lunchvoucher>
+            <!-- Payment method new way useful tutorial : https://www.rakeshjesadiya.com/create-custom-payment-method-using-adapter-class-magento-2/ -->
+            <lunchvouchernew>
+                <active>1</active>
+                <model>SamplePaymentLunchVoucherNewFacade</model><!-- Virtual Class see in di -->
+                <order_status>pending</order_status>
+                <title>Lunch Voucher New</title>
+                <allowspecific>0</allowspecific>
+                <payment_action>true</payment_action>
+                <!-- With this new way you can configure payment parameters in config file, if you forget them the payment will not be shown -->
+                <can_use_checkout>1</can_use_checkout>
+                <can_use_internal>1</can_use_internal>
+                <can_use_for_multishipping>1</can_use_for_multishipping>
+                <group>offline</group>
+            </lunchvouchernew>
         </payment>
     </default>
 </config>

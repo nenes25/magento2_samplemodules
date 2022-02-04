@@ -17,10 +17,20 @@
                                                         <item name="renders" xsi:type="array">
                                                             <!-- Add payment method here -->
                                                             <item name="children" xsi:type="array">
+                                                                <!-- Method old way -->
                                                                 <item name="lunchvoucher" xsi:type="array">
                                                                     <item name="component" xsi:type="string">Hhennes_SamplePayment/js/view/payment/lunchVoucher</item>
                                                                     <item name="methods" xsi:type="array">
                                                                         <item name="lunchvoucher" xsi:type="array">
+                                                                            <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
+                                                                        </item>
+                                                                    </item>
+                                                                </item>
+                                                                <!-- Method new way -->
+                                                                <item name="lunchvouchernew" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Hhennes_SamplePayment/js/view/payment/lunchVoucherNew</item>
+                                                                    <item name="methods" xsi:type="array">
+                                                                        <item name="lunchvouchernew" xsi:type="array">
                                                                             <item name="isBillingAddressRequired" xsi:type="boolean">true</item>
                                                                         </item>
                                                                     </item>

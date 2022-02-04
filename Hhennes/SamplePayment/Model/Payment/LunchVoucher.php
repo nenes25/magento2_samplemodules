@@ -5,6 +5,7 @@ namespace Hhennes\SamplePayment\Model\Payment;
 /**
  * Sample Offline Payment Module using old way
  * Useful tutorial : https://www.pitsolutions.ch/blog/creating-offline-payment-method-magento-2/
+ * This method use the "old" deprecated way extending AbstractMethod
  */
 class LunchVoucher extends \Magento\Payment\Model\Method\AbstractMethod
 {

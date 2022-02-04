@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <!-- Management for Payment declared in DI vs old way \Magento\Payment\Model\Method\AbstractMethod -->
+
+    <!-- Payment Method Facade configuration -->
+    <virtualType name="SamplePaymentLunchVoucherNewFacade" type="Magento\Payment\Model\Method\Adapter">
+        <arguments>
+            <argument name="code" xsi:type="const">Hhennes\SamplePayment\Model\Checkout\LunchVoucherNewConfigProvider::CODE</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+            <argument name="valueHandlerPool" xsi:type="object">Magento\Payment\Gateway\Config\ValueHandlerPool</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Configuration reader -->
+    <type name="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Hhennes\SamplePayment\Model\Checkout\LunchVoucherNewConfigProvider::CODE</argument>
+        </arguments>
+    </type>
+    <!-- Value handlers infrastructure -->
+    <type name="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">Magento\Payment\Gateway\Config\ConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">Magento\Payment\Gateway\Config\Config</argument>
+        </arguments>
+    </type>
+</config>

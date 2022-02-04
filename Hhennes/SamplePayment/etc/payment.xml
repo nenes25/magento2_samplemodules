@@ -11,5 +11,8 @@
             <!-- Allow to work with multi-shipping -->
             <allow_multiple_address>1</allow_multiple_address>
         </method>
+        <method name="lunchvouchernew">
+            <allow_multiple_address>1</allow_multiple_address>
+        </method>
     </methods>
 </payment>
