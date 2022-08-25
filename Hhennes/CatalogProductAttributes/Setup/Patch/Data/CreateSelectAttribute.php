@@ -39,6 +39,7 @@ class CreateSelectAttribute implements DataPatchInterface
      */
     public function apply()
     {
+        /** @var \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create();
         $eavSetup->addAttribute(
             Product::ENTITY,

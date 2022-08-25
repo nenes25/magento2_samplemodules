@@ -31,6 +31,7 @@ class CreateCmsBlockAttribute implements DataPatchInterface
      */
     public function apply()
     {
+        /** @var \Magento\Eav\Setup\EavSetup $eavSetup */
         $eavSetup = $this->eavSetupFactory->create();
         $attributeSetIds = $eavSetup->getAllAttributeSetIds(Product::ENTITY);
         //Details product
