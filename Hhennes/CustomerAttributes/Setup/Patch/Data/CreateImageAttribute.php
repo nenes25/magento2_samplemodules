@@ -17,7 +17,7 @@ use Magento\Framework\Serialize\SerializerInterface;
 class CreateImageAttribute implements DataPatchInterface
 {
 
-    /** @var string Code de l'attribut */
+    /** @var string Attribute code */
     const ATTRIBUTE_CODE = 'sample_image_attribute';
 
     /**

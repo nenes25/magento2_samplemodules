@@ -41,3 +41,23 @@ $_sampleSelectOptions = $this->helper(Hhennes\CustomerAttributes\Helper\Data::cl
     <label class="label" for="sample_image_attribute"><span><?= __('sample Image attribute') ?></span></label>
     <input type="file" name="sample_image_attribute" id="sample_image_attribute"/>
 </div>
+
+<!-- Date field -->
+<div class="field">
+    <label class="label" for="sample_date_attribute"><span><?= __('sample Date attribute') ?></span></label>
+    <?=
+    $block->getLayout()->createBlock('Magento\Framework\View\Element\Html\Date')
+        ->setData([
+            'name' => 'sample_date_attribute',
+            'id' => 'sample_date_attribute',
+            //'value' => $block->escapeHtmlAttr($block->getFormData()->getDate()),
+            'date_format' => 'Y-MM-dd',
+            'image' => $this->getViewFileUrl('Magento_Theme::calendar.png'),
+            'change_month' => 'true',
+            'change_year' => 'true',
+            'show_on' => 'both',
+            'first_day' => 1
+        ])
+        ->toHtml()
+    ?>
+</div>

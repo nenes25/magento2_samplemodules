@@ -12,7 +12,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 class CreateYesNoAttribute implements DataPatchInterface
 {
 
-    /** @var string Nom du champ de flag qui sera ajouté dans toutes les tables */
+    /** @var string Attribute code */
     const ATTRIBUTE_CODE = 'sample_yes_no_attribute';
 
     /**

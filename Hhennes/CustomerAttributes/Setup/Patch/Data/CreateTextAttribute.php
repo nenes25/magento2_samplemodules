@@ -10,7 +10,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 class CreateTextAttribute implements DataPatchInterface
 {
 
-    /** @var string Nom de l'attribut à créer */
+    /** @var string Attribute code */
     const ATTRIBUTE_CODE = 'sample_text_attribute';
 
     /**

@@ -11,7 +11,7 @@ use Magento\Framework\Setup\Patch\DataPatchInterface;
 class CreateSelectAttribute implements DataPatchInterface
 {
 
-    /** @var string Code de l'attribut */
+    /** @var string Attribute code */
     const ATTRIBUTE_CODE = 'sample_select_attribute';
 
     /**

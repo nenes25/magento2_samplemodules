@@ -10,3 +10,4 @@ Covered types
 - Yes/No attribute (boolean/checkbox)
 - File attribute
 - Image attribute
+- Date
