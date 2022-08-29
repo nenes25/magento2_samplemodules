@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Catalog:etc/product_types.xsd">
+
+    <!-- Voir ici : https://aureatelabs.com/magento-2/how-to-create-a-new-product-type-in-magento-2/ -->
+    <!-- In order to works with msi do not forget isQty="true" otherwise the stock is not saved -->
+    <type name="simplecm" label="Simple product with prices in cms "
+          modelInstance="Hhennes\ProductTypes\Model\Product\Type\SimpleCm" composite='false' indexPriority="30" sortOrder="20" isQty="true">
+        <priceModel instance="Hhennes\ProductTypes\Model\Product\Type\SimpleCm\Price" />
+<!--        <indexerModel instance="Hhennes\ProductTypes\Model\ResourceModel\Indexer\Stock\SimpleCm" />-->
+        <customAttributes>
+            <attribute name="refundable" value="true"/>
+        </customAttributes>
+    </type>
+    <composableTypes>
+        <type name="simplecm" />
+    </composableTypes>
+</config>

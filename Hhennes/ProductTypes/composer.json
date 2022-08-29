@@ -1,0 +1,20 @@
+{
+  "name": "hhennes/module-product-types",
+  "version": "1.0.0",
+  "description": "Sample Module which add a custom product type",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*"
+  },
+  "license": [
+    "AFL-3.0"
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hhennes\\ProductTypes\\": ""
+    }
+  }
+}
