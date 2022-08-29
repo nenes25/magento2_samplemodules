@@ -1,20 +1,20 @@
 {
-  "name": "hhennes/sample-carrier",
-  "version": "1.0.0",
-  "description": "N/A",
-  "type": "magento2-module",
-  "require": {
-    "magento/framework": "*"
-  },
-  "license": [
-    "Proprietary"
-  ],
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "hhennes/sample-carrier",
+    "version": "1.0.0",
+    "description": "Sample carrier module",
+    "type": "magento2-module",
+    "require": {
+        "magento/framework": "*"
+    },
+    "license": [
+        "AFL-3.0"
     ],
-    "psr-4": {
-      "Hhennes\\SampleCarrier\\": ""
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Hhennes\\SampleCarrier\\": ""
+        }
     }
-  }
 }

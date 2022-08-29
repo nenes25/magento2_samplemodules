@@ -10,7 +10,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * The name of this command is defined in the di.xml file
- * see
  */
 class SampleDiNameCommand extends Command
 {
