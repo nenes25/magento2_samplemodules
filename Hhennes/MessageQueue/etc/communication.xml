@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Communication/etc/communication.xsd">
+   <!-- Usefull resource about this topic : https://blog.gaiterjones.com/magento-2-asynchronous-message-queue-management/ -->
+    <!--    Topic to process customers : Will be processed by mysql
+       The request argument is important because it is necessary to use it as argument for the handler function
+       see \Hhennes\MessageQueue\Model\MessageQueues\CustomerProcessor::process for example
+   -->
+    <topic name="hhennes.messagequeue.customers" request="string"/>
+    <!-- Topic to process orders : Will be processed by amqp -->
+    <topic name="hhennes.messagequeue.orders" request="string"/>
+</config>

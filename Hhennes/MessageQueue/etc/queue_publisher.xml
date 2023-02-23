@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/publisher.xsd">
+    <!-- Topic name from communication.xml -->
+    <publisher topic="hhennes.messagequeue.customers">
+        <!-- connection type and exchange code for db -->
+        <connection name="db" exchange="magento-db" />
+    </publisher>
+    <publisher topic="hhennes.messagequeue.orders">
+        <!-- connection type and exchange code for amqp , we use a custom exchange declared in queue_topology.xml -->
+        <connection name="amqp" exchange="hhennes-messagequeues-exchange" />
+    </publisher>
+</config>

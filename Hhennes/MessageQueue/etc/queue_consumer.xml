@@ -1,0 +1,19 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/consumer.xsd">
+    <!-- name: The name of the consumer (displayed in command queue:consumers:list ) -->
+    <!-- queue: Defines the queue name to send the message to -->
+    <!-- connection: For AMQP connections, the connection name must match the connection attribute in the queue_topology.xml file. Otherwise, the connection name must be db -->
+    <!-- consumerInstance: The Magento class name that consumes the message -->
+    <consumer name="hhennes_messagequeue_customer"
+              queue="hhennes.messagequeue.customers"
+              connection="db"
+              maxMessages="100"
+              handler="Hhennes\MessageQueue\Model\MessageQueues\CustomerProcessor::process"
+    />
+
+    <consumer name="hhennes_messagequeue_order"
+              queue="hhennes.messagequeue.orders"
+              connection="amqp"
+              maxMessages="100"
+              handler="Hhennes\MessageQueue\Model\MessageQueues\OrderProcessor::process"/>
+</config>

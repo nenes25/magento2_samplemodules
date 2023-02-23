@@ -1,0 +1,28 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework-message-queue:etc/topology.xsd">
+
+    <!--
+    In case we want to use mysql in the exchange add them in the following exchange node
+    -->
+    <exchange name="magento-db" connection="db" type="topic">
+        <!-- id: A unique ID -->
+        <!-- topic: Name of the topic where to publish (from communication.xml) -->
+        <!-- destinationType: Fixed value : queue -->
+        <!-- destination: Identifies the name of a queue -->
+        <binding id="hhennesMessageQueueCustomer"
+                 topic="hhennes.messagequeue.customers"
+                 destinationType="queue"
+                 destination="hhennes.messagequeue.customers"
+        />
+    </exchange>
+
+    <!-- Exchange node is related with node <connection name="amqp" exchange="hhennes-messagequeues-exchange" /> in queue_publisher.xml -->
+    <exchange name="hhennes-messagequeues-exchange" type="topic" connection="amqp">
+        <binding id="hhennesMessageQueueOrders"
+                 topic="hhennes.messagequeue.orders"
+                 destinationType="queue"
+                 destination="hhennes.messagequeue.orders"
+        />
+    </exchange>
+
+</config>
