@@ -1,0 +1,8 @@
+{
+    "sales_order_grid": {
+        "column": {
+            "customer_note": true,
+            "coupon_code": true
+        }
+    }
+}
