@@ -4,7 +4,7 @@
     <!-- Add customer_note column to sales_order_grid -->
     <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid" type="Magento\Sales\Model\ResourceModel\Grid">
         <arguments>
-            <argument name="columns">
+            <argument name="columns" xsi:type="array">
                 <item name="coupon_code" xsi:type="string">sales_order.coupon_code</item>
             </argument>
         </arguments>
